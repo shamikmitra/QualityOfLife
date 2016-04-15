@@ -1,0 +1,139 @@
+<style>
+    body {
+      background: #121F54;
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .section .reveal .state-background {
+        background-image: url(images/SlideBackground.jpg);
+        background-position: center center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .section .reveal h1 {
+        font-size: 100px;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+
+    .section .reveal p {
+        font-size: n30px;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+
+    .reveal h3 { 
+      font-size: 80px;
+      color: #00B0F0;
+    }
+    
+    .slideContent p {
+        font-size: 30px;
+        color: #FFFFFF;
+    }
+    
+    .section .reveal a {
+        font-size: 30px;
+        color: #FFFFFF;
+    }
+
+    .slideContent li {
+        font-size: 24px;
+        color: #FFFFFF;
+        line-height: 100%;
+    }
+    
+    .slideContent td {
+        font-size: 30px;
+        color: #FFFFFF;
+        line-height: 100%;
+    }
+
+    .slideContent .citation {
+        font-size: 20px;
+        color: #FFFFFF;
+        line-height: 100%;
+    }
+    
+</style>
+
+Measuring Quality of Life
+========================================================
+author: Shamik Mitra
+date: `r format(Sys.Date(), format="%B %d, %Y")`
+transition: rotate
+transition-speed: slow
+font-family: 'Cambria'
+
+<br><br><br><br>
+<small> 
+Final project for Coursera Developing Data Products course <br>
+Johns Hopkins University
+</small>
+
+An overview of Quality of Life
+========================================================
+Quality of life (QOL) is the general well-being of individuals and societies. Standard indicators of the quality of life include not only wealth and employment but also the built environment, physical and mental health, education, recreation and leisure time, and social belonging. While not all parameters lend themselves to easy numerical measuremment, researchers use various proxy variables to measure the well-being of the society.
+
+One such research data is available in the <a href="http://www.numbeo.com/quality-of-life/rankings.jsp"><font color=#99FC66>numbeo website</font></a>. This contains the Quality of Life for 143 major cities around the world.
+
+
+How is Quality of Life measured
+========================================================
+In the numbeo website, the quality of life is a weighted average of the following 8 parameters:
+
+1. Cost of Living index - an average cost of a basket of goods and services, compared to New York city. The basket includes groceries, restaurants, transportation and utilities
+2. Purchasing Power index - this shows the average price of a basket of goods, compared to the average wage in that city. This is also compared to New York city
+3. Property Price to income ratio - It is the ratio of median apartment prices to median familial disposable income, expressed as years of income
+4. Pollution index - measure the weighted average of pollution, with the highest weights given to air and water pollution
+5. Safety index - measures the lack of crime in a city
+6. Climate index - measures average temperation and humidity as an indicator of the climate
+7. Health Care index - a measure of the quality of the health care system
+8. Traffic Commute index - it is a composite index of time consumed in traffic due to job commute, estimation of time consumption dissatisfaction, CO2 consumption estimation in traffic and overall inefficiencies in the traffic system
+
+
+
+What this application does
+========================================================
+The application shows the Quality of Life of the various cities around the world. It displays the output as a table, or rendered on top of a map.
+
+<table cellspacing='10' cellpadding='0' border='1px' width=100% height='450px' style= "background-image:url('images/AppBackground.jpg'); background-repeat:no-repeat; border-style:hidden" background="images/AppBackground.jpg">
+    <tr>
+        <td width=22%></td>
+        <td width=60%>When you open this application, it calculates the quality of life based on the default weights for each of the 8 parameters defined above. However, you may have a different priority, and thus may want to change the weights. Use the sliders on the left to change the weights. To see how the cities stack up on any one particular parameter, just make all the other parameter weights 0.
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>You could also see all the 143 cities, or limit it to a region or a country. Use the drop down boxes on the top right of the screen to filter the cities.</td>
+        <td></td>
+    </tr>
+</table>
+
+Technical implementation
+========================================================
+
+This application has been built using RStudio's shiny library. The application uses the data downloaded from the numbeo website. It demonstrates
+
+a) Dynamic server-side calculations. Quality of Life calculations are done on the server, everytime the user changes the input
+
+b) Use of a map display using the leaflet package, as well as the ThunderForest and OpenStreetMap tiles
+
+c) Use of conditional input that is displayed based on the value of another input field.
+
+<a href='https://shamikmitra.shinyapps.io/QualityOfLife/'><font color=#99FC66>Click here</font></a> to open the application. <a href='https://github.com/shamikmitra/QualityOfLife'><font color=#99FC66>Click here</font></a> for the source code.
+
+<div class=citation>
+<b>Citations</b><br>
+1. <a href='http://www.numbeo.com'><font color=#99FC66>Numbeo website</font></a> (c) 2009-2016<br>
+2. The 'leaflet' R package is copyright (c) 2014-2015 RStudio, Inc.<br>
+3. Map tiles using <a href='http://www.thunderforest.com/'><font color=#99FC66>Thunderforest</font></a> and <a href='http://www.openstreetmap.org'><font color=#99FC66>OpenStreetMap</font></a><br>
+4. RStudio gallery <a href='http://shiny.rstudio.com/gallery/superzip-example.html'><font color=#99FC66>Superzip example</font></a> for inspiration and the art of the possible
+5. Cover photo from <a href='http://www.archdaily.com/501064/mad-breaks-ground-on-proposal-that-redefines-beijing-s-city-landscape'><font color=#99FC66>ArchDaily</font></a>, a picture of the Beijing Chaoyang Park Plaza.
+
+</div>
